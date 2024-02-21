@@ -80,3 +80,7 @@ Scenario 1: Show a chart with the number of upcoming events in each city.
     Given the user has selected a city
     When the user views the event details
     Then display a chart showing the number of upcoming events in that city
+
+## Using Serverless Functions in Meet App
+
+The Meet app leverages serverless functions to provide a scalable, efficient, and cost-effective cloud infrastructure. These functions, hosted on platforms like AWS Lambda, enable our app to dynamically respond to events such as user requests for event information, authentication processes, and data retrieval without the need for managing traditional server infrastructures.
