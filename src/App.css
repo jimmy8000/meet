@@ -1,38 +1,115 @@
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Main App container */
 .App {
-  text-align: center;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li {
+  margin: 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.city {
+  padding: 10px 20px;
+  margin: 20px 0;
+  width: calc(100% - 40px); /* Full width with padding */
+  border: 2px solid #007bff;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.city:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+.suggestions {
+  margin-top: 5px;
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+}
+
+.suggestions li {
+  cursor: pointer;
+  padding: 8px 20px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.2s;
+}
+
+.suggestions li:last-child {
+  border-bottom: none;
+}
+
+.suggestions li:hover {
+  background-color: #f8f8f8;
+}
+.event-item {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.event-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.showDetailsButton {
+  background-color: #007bff;
   color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+.showDetailsButton:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-left: 3px solid #007bff;
+  border-radius: 4px;
+}
+
+#numberOfEvents {
+  margin: 20px 0;
+}
+
+#numberOfEvents input {
+  width: 60px; /* Adjusted width for better visibility */
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#numberOfEvents input:focus {
+  border-color: #0056b3;
+  outline: none;
 }
