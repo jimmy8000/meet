@@ -6,7 +6,7 @@ describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsComponent;
 
     beforeEach(() => {
-        NumberOfEventsComponent = render(<NumberOfEvents eventNumber="32" setCurrentNOE={mockSetEventNumber}/>);
+        NumberOfEventsComponent = render(<NumberOfEvents eventNumber="32" setCurrentNOE={mockSetEventNumber} setErrorAlert={() => {}}/>);
     });
 
     test('has a textbox element', () => {
