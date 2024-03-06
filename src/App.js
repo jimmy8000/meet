@@ -25,13 +25,23 @@ const App = () => {
       setEvents(eventsToShow);
       setAllLocations(extractLocations(allEvents));
     };
-    if (navigator.onLine) {
-      setWarningAlert("");
-    } else {
-      setWarningAlert("You are offline. Events may not be up-to-date.");
-    }
+    const updateOnlineStatus = () => {
+      if (navigator.onLine) {
+        setWarningAlert("");
+      } else {
+        setWarningAlert("You are offline. Events may not be up-to-date.");
+      }
+    };
+
+    window.addEventListener('online',  updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
 
     fetchData();
+
+    return () => {
+      window.removeEventListener('online', updateOnlineStatus);
+      window.removeEventListener('offline', updateOnlineStatus);
+    };
   }, [currentCity, currentNOE]);
 
   return (
