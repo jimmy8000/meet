@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
   const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
+  
+  const colors = ["#8884d8", "#83a6ed", "#8dd1e1", "#82ca9d", "#a4de6c"];
 
   const getData = () => {
-    const data = genres.map((genre) => {
+    const data = genres.map((genre, index) => {
       const value = events.filter((event) => event.summary.includes(genre))
         .length;
-      return { name: genre, value };
+      return { name: genre, value, fill: colors[index % colors.length] };
     });
     setData(data);
   };
@@ -27,7 +29,7 @@ const EventGenresChart = ({ events }) => {
       <text
         x={x}
         y={y}
-        fill="#8884d8"
+        fill={colors[index % colors.length]}
         textAnchor={x > cx ? 'start' : 'end'}
         dominantBaseline="central"
       >
@@ -42,7 +44,6 @@ const EventGenresChart = ({ events }) => {
         <Pie
           data={data}
           dataKey="value"
-          fill="#8884d8"
           labelLine={false}
           label={renderCustomizedLabel}
           outerRadius={130}
@@ -52,4 +53,5 @@ const EventGenresChart = ({ events }) => {
     </ResponsiveContainer>
   );
 };
+
 export default EventGenresChart;
