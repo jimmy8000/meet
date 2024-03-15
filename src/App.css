@@ -10,6 +10,7 @@ body {
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* Main App container */
@@ -42,7 +43,7 @@ li {
 
 .suggestions {
   margin-top: 5px;
-  text-align: left;
+  text-align: center;
   display: inline-block;
   width: 100%;
 }
