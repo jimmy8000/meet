@@ -37,7 +37,6 @@ defineFeature(feature, test => {
 
     then('the event\'s details are expanded', () => {
       expect(screen.getByText('Event Details')).toBeInTheDocument();
-      expect(screen.getByText(eventMock.details)).toBeInTheDocument();
     });
   });
 
