@@ -5,10 +5,12 @@ import { useState } from "react";
 const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
 
+  const date = new Date(event.created).toLocaleString();
+
   return (
     <li className="event">
       <h1>{event.summary}</h1>
-      <p>{event.created}</p>
+      <p>{date}</p>
       <p>{event.location}</p>
       <button
         className="showDetailsButton"
