@@ -1,24 +1,21 @@
 import { ResponsiveContainer, PieChart, Pie, Tooltip } from "recharts";
 import { useState, useEffect } from "react";
 
+
+const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
+const colors = ["#8884d8", "#83a6ed", "#8dd1e1", "#82ca9d", "#a4de6c"];
+
 const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
-  const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
-  
-  const colors = ["#8884d8", "#83a6ed", "#8dd1e1", "#82ca9d", "#a4de6c"];
-
-  const getData = () => {
-    const data = genres.map((genre, index) => {
-      const value = events.filter((event) => event.summary.includes(genre))
-        .length;
-      return { name: genre, value, fill: colors[index % colors.length] };
-    });
-    setData(data);
-  };
 
   useEffect(() => {
-    getData();
-  }, [`${events}`]);
+      const data = genres.map((genre, index) => {
+        const value = events.filter((event) => event.summary.includes(genre))
+          .length;
+        return { name: genre, value, fill: colors[index % colors.length] };
+      });
+      setData(data);
+  }, [events]);
 
   const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
     const RADIAN = Math.PI / 180;
